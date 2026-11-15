@@ -69,3 +69,4 @@ another astronaut's data. Passwords and reset codes are stored hashed.
 
 ## Use of AI
 Disclose where AI helped (code review/rewrite, frontend generation, research of NASA limits) in the project description.
+Parts of this code were written with the help of AI (Claude by Anthropic).
