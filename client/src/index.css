@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { color-scheme: dark; scroll-behavior: smooth; }
+  body {
+    @apply bg-bg font-sans text-ink antialiased;
+    background-image:
+      radial-gradient(1200px 600px at 80% -10%, #1b2a66 0%, transparent 60%),
+      radial-gradient(900px 500px at -10% 110%, #162052 0%, transparent 55%);
+    background-attachment: fixed;
+  }
+  :focus-visible { @apply outline outline-2 outline-offset-2 outline-accent; }
+}
+
+/* Heartbeat trace on the landing page: the green line redraws itself. */
+@keyframes ecg-draw {
+  0% { stroke-dashoffset: 1; opacity: 1; }
+  80% { stroke-dashoffset: 0; opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 0; }
+}
+.ecg-trace {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: ecg-draw 3.2s linear infinite;
+  filter: drop-shadow(0 0 4px rgba(61, 220, 151, 0.7));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .ecg-trace { stroke-dashoffset: 0; }
+}
